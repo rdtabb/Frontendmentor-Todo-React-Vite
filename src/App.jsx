@@ -45,11 +45,18 @@ function App() {
     setAndSaveItems(listItems)
   };
 
+  const handleClick = () => {
+    const listItems = items.filter((item) => 
+      item.checked == false
+    )
+    setAndSaveItems(listItems)
+  }
+
   return (
     <div className="main-container">
       <Header />
       <AddTodo newItems={newItems} setNewItems={setNewItems} handleSubmit={handleSubmit} />
-      <Content items={items} setItems={setItems} handleChange={handleChange} handleDelete={handleDelete}/>
+      <Content handleClick={handleClick} items={items} setItems={setItems} handleChange={handleChange} handleDelete={handleDelete}/>
     </div>
   );
 }
