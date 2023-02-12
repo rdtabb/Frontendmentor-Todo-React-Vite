@@ -199,7 +199,7 @@ body.light {
     transition: all var(--theme-timing) var(--theme-function);
 }
 
-input[type="checkbox"] {
+:where(input[type="checkbox"], .add-task-checkbox) {
     appearance: none;
     width: 1.7rem;
     aspect-ratio: 1;
@@ -207,6 +207,7 @@ input[type="checkbox"] {
     border: 1px solid var(--dt-clr-600);
     margin: 1rem;
     transition: all 200ms var(--theme-function);
+    padding: 0 !important;
 }
 
 input:checked {
@@ -280,7 +281,8 @@ input[type="text"] {
     &__text {
         display: flex;
         align-items: center;
-        padding: var(--fs-400);
+        // padding: var(--fs-400);
+        font-family: var(--ff-primary);
     }
 }
 

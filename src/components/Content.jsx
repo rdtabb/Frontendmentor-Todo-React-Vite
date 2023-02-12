@@ -1,4 +1,4 @@
-const Content = ({ items, handleChange }) => {
+const Content = ({ items, handleChange, handleDelete }) => {
   return (
     <div className="todo-list-container">
       {items.map((item) => (
@@ -24,10 +24,20 @@ const Content = ({ items, handleChange }) => {
               d="M1 4.304L3.696 7l6-6"
             />
           </svg>
-          <p id="input-task" className="todo-container__text">
+          <p 
+            id="input-task" 
+            className="todo-container__text"
+            style={(item.checked) ? {
+              textDecoration: "line-through",
+              opacity: "0.8"
+            } : null}
+          >
             {item.item}
           </p>
-          <button className="cross-icon"></button>
+          <button
+           className="cross-icon"
+           onClick={() => handleDelete(item.id)}
+          ></button>
         </div>
       ))}
     </div>
