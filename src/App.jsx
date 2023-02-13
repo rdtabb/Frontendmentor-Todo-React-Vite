@@ -39,26 +39,24 @@ function App() {
   }
 
   const handleChange = (id) => {
+    const changedItem = document.getElementById(`${id}`)
+    const visibility = changedItem.getAttribute('data-visible')
+    visibility == "true" ? changedItem.setAttribute('data-visible', 'false') : changedItem.setAttribute('data-visible', 'true')
     const listItems = items.map((item) =>
-      item.id == id ? { ...item, checked: !item.checked } : item
+      item.id == id ? { ...item, checked: !item.checked, visibility: !item.visibility } : item
     );
     setAndSaveItems(listItems)
   };
+
+  const handleShowActiveFilter = () => {
+    
+  }
 
   const handleClick = () => {
     const listItems = items.filter((item) => 
       item.checked == false
     )
     setAndSaveItems(listItems)
-  }
-
-  const handleActive = () => {
-    console.log("clicked")
-    items.forEach(item => {
-      item.checked == true 
-        ? {...item, visibility: !item.visibility}
-        : item
-    });
   }
 
   const handleLightTheme = () => {
@@ -105,6 +103,7 @@ function App() {
         setItems={setItems} 
         handleChange={handleChange} 
         handleDelete={handleDelete}
+        handleShowActiveFilter={handleShowActiveFilter}
       />
     </div>
   );

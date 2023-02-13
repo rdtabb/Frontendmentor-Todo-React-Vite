@@ -1,7 +1,7 @@
 import ListItem from "./ListItem";
 import FilterBoard from "./FilterBoard";
 
-const Content = ({ items, handleChange, handleDelete, handleClick }) => {
+const Content = ({ items, handleChange, handleDelete, handleClick, handleShowActiveFilter }) => {
   return (
     <div className="todo-list-container">
       {items.length ? items.map((item) => 
@@ -16,6 +16,7 @@ const Content = ({ items, handleChange, handleDelete, handleClick }) => {
         items={items}
         length={items.length}
         handleClick={handleClick}
+        handleShowActiveFilter={handleShowActiveFilter}
       />
     </div>
   );

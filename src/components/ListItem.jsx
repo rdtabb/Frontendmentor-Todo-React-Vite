@@ -1,11 +1,10 @@
 const ListItem = ({ item, handleChange, handleDelete, uniqueId }) => {
     return (
-        <div className="todo-container" key={uniqueId}>
+        <div id={item.id} data-visible="true" className="todo-container" key={uniqueId}>
           <input
             type="checkbox"
             name="check"
             id={item.id}
-            data-visible="false"
             checked={item.checked}
             onChange={() => handleChange(item.id)}
           />
