@@ -18,7 +18,6 @@ function App() {
       id,
       item,
       checked: false,
-      visibility: true
     }
     const listItems = [...items, newItem]
     setAndSaveItems(listItems)
@@ -43,13 +42,37 @@ function App() {
     const visibility = changedItem.getAttribute('data-visible')
     visibility == "true" ? changedItem.setAttribute('data-visible', 'false') : changedItem.setAttribute('data-visible', 'true')
     const listItems = items.map((item) =>
-      item.id == id ? { ...item, checked: !item.checked, visibility: !item.visibility } : item
+      item.id == id ? { ...item, checked: !item.checked } : item
     );
     setAndSaveItems(listItems)
   };
 
+  const allChildren = document.querySelectorAll('[data-visible]')
+
   const handleShowActiveFilter = () => {
-    
+    const checked = document.querySelectorAll('[data-visible=false]')
+    allChildren.forEach(child => {
+      child.classList.remove('removed')
+    })
+    checked.forEach(check => {
+      check.classList.add('removed')
+    })
+  }
+
+  const handleShowAllFilter = () => {
+    allChildren.forEach(child => {
+      child.classList.remove('removed')
+    })
+  }
+
+  const handleShowInactiveFilter = () => {
+    const unchecked = document.querySelectorAll('[data-visible=true]')
+    allChildren.forEach(child => {
+      child.classList.remove('removed')
+    })
+    unchecked.forEach(unch => {
+      unch.classList.add('removed')
+    })
   }
 
   const handleClick = () => {
@@ -104,6 +127,8 @@ function App() {
         handleChange={handleChange} 
         handleDelete={handleDelete}
         handleShowActiveFilter={handleShowActiveFilter}
+        handleShowAllFilter={handleShowAllFilter}
+        handleShowInactiveFilter={handleShowInactiveFilter}
       />
     </div>
   );
