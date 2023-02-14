@@ -4,7 +4,7 @@ import Content from "./components/Content";
 import AddTodo from "./components/AddTodo";
 
 function App() {
-  const [items, setItems] = useState(JSON.parse(localStorage.getItem("todolist")));
+  const [items, setItems] = useState(JSON.parse(localStorage.getItem("todolist")) || '');
   const [newItems, setNewItems] = useState("")
 
   const setAndSaveItems = (newItems) => {
