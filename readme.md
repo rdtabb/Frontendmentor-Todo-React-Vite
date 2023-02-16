@@ -1,3 +1,6 @@
+# Warning
+If you checkout live preview on Github Pages, you will find out that the project works incorrectly. I guess this is the fault of Vite or something like that, because on my local host environment everything work perfectly fine. So go ahead, clone repository into your device and check it out.
+
 # Description
 In this project I've made the Frontendmentor project "Todo-list". Previously I have already completed this porject with HTML/CSS and vanilla JS. This time I've changed the stack. Todo is mage using Vite, ReactJS and SASS. This project is a great example of beginner-level React code which utilizes high-order functions sich as map() and filter() as well as two hooks - useState and useRef
 
