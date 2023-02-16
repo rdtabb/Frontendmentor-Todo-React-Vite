@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Content from "./components/Content";
 import AddTodo from "./components/AddTodo";
@@ -7,9 +7,12 @@ function App() {
   const [items, setItems] = useState(JSON.parse(localStorage.getItem("todolist")) || []);
   const [newItems, setNewItems] = useState("")
 
+  useEffect(() => {
+    localStorage.setItem("todolist", JSON.stringify(items))
+  }, [items])
+
   const setAndSaveItems = (newItems) => {
     setItems(newItems)
-    localStorage.setItem("todolist", JSON.stringify(newItems))
   }
 
   const addNewItem = (item) => {
